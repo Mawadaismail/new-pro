@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aqua;
+}
+@media screen and (min-width: 600px) {
+    body {
+      background-color: #fff;
+    }
+  }
+.header{
+    display: grid;
+    height: 80px;
+    grid-template-columns: 20% 46% 37%;
+}
+.header .img1 img{
+    margin-left: 230px;
+    margin-top: 25px;
+}
+.header .link{
+    margin-left: 35%;
+    margin-top: 15px;
+}
+.header .link ol{
+    list-style: none;
+   }
+.header .link ol li{
+    display: inline-block;
+    padding: 10px;
+}
+.header .link ol li a{
+    text-decoration: none;
+    position: relative;
+    font-size: 20px;
+    color: #000;
+    text-transform: capitalize;
+    padding:10px;
+}
+.header .link ol li a:hover{
+    z-index: 0;
+    font-weight: 600;
+}
+.header .link ol li a::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top:2px solid navy ;
+    border-bottom:2px solid navy ;
+    transform: scale(1);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+
+}
+.header .link ol li a:hover::before{
+    transform: scale(1);
+    opacity: 1;
+}
+.header .link ol li a::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-right:2px solid navy ;
+    border-left:2px solid navy ;
+    transform: scale(0);
+    transition: 0.6s;
+    z-index: -1;
+    grid-area:5 ;
+}
+.header .link ol li a:hover::after{
+    transform: scale(1);
+} 
+.header .link ol .dropdown {
+    position: relative;
+}
+.header .link ol .dropdown  ul {
+    position: absolute;
+    left: 45%;
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+     transition:  0.7s;
+  opacity: 0;
+  transform: scale(0);
+}
+.header .link  .dropdown ul li{
+    list-style: none;
+    display: block;
+    background-color: gray;
+   padding: 10px;
+   text-transform: capitalize;
+   font-size: 20px;
+   color: rgb(143, 221, 247);
+   cursor: pointer;
+   
+}
+.header .link ol  .dropdown:hover  .menu {
+transform: scale(1);
+opacity: 1;
+}
+.header .icon{
+    margin-top: 25px;
+    margin-left: 20%;
+    position: relative;
+}
+.header .icon svg{
+    font-size: 28px;
+    padding: 5px;
+    fill: #000000
+}
+.header .icon span{
+    background-color: blue;
+    color: #fff;
+    position: absolute;
+   top:  -10px;
+left: 50px;
+    font-size: 15px;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+.header .icon .buy{
+    position: absolute;
+    top: -8.5px;
+    margin-left: 15%;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    text-transform: capitalize;
+    padding: 10px 40px;
+    font-family: sans-serif;
+}
+.header .icon .buy:hover{
+    background-color: blue;
+    color: #fff;
+    border: none;
+}
+.container{
+    height: 82vh;
+    background-color: rgb(213, 226, 230);
+}
+/* .container .blue{
+    background-color: blue;
+} */
+/* .container .lightblue{
+
+} */
+.container img{
+    position: absolute;
+    
+    /* left: 270px; */
+    left: 290px;
+    width: 25%;
+    height: 82vh;
+    animation-name: change;
+    animation-duration: 2s;
+}
+@keyframes change{
+    0%{
+        left: 0;
+        ;
+    }
+    50%{
+        /* left:270px ; */
+        left: 290px;
+        transform: rotate(10deg); 
+    }
+}
+.container .shop{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+}
+.container .shop h2{
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 300;
+    color: rgb(97, 94, 94);
+}
+.container .shop h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+   -webkit-text-stroke: 2px #000;
+   color: transparent;
+   animation: shine 2s forwards, flicker 3s infinite;
+}
+.container .shop h1 .shine{
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+@keyframes shine {
+    0% {
+      
+      color: orange;
+      -webkit-text-stroke: 2px yellow;
+    }
+    100% {
+      color: palevioletred;
+      -webkit-text-stroke: 2px rgb(236, 28, 97);
+         }
+  }
+  @keyframes blink {
+    0%, 20%
+    {
+      color:green ;
+      -webkit-text-stroke: 2px lawngreen;
+         }
+    
+    30%,50% {
+      color: #ff65bd;
+      
+    }
+   
+    97% {
+      color: fuchsia;
+      
+    }
+  }
+  
+  @keyframes flicker {
+    from {
+      opacity: 1;
+    }
+      10% {
+      opacity: 0.88;
+    }
+      20% {
+      opacity: 0.99;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .container .shop p{
+    margin-top: 20px;
+   padding: 5px 0px;
+    font-size: 18px;
+    color: gray;
+    font-family: sans-serif;
+  }
+  .container .shop .bth{
+text-decoration: none;
+margin-left:0%;
+background-color: blue;
+padding: 15px 30px;
+color: #fff;
+font-size: 20px;
+border-radius: 50px;
+font-family: sans-serif;
+text-transform: capitalize;
+  }
+  .container .shop .bth:hover{
+    background-color: transparent;
+    color: blue;
+    border: 2px solid gray;
+  }
+  .products{
+    margin-top: 100px;
+  }
+  .products .title{
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px 0 0;
+  }
+  .products .line {
+    width: 7%;
+    height: 3px;
+    margin: 10px auto;
+    padding: 1.5px;
+    background-color: #f75394;
+    transition: 0.5s;
+}
+.line:hover{
+    width: 12%;
+}
+.products .products-items{
+    
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-column-gap:10px ;
+    padding: 15px 0;
+    
+}
+
+.products .products-items .photo-items{
+    margin-left: 166.5px;
+    position: relative;
+}
+.products .products-items .type-product{
+    font-size: 16px;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    color: grey;
+    font-weight: 300;
+    padding: 5px;
+}
+.products .photo-items .name-product{
+    font-family: 'Oswald', sans-serif;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.photo-items svg{
+    background-color: blue;
+   padding: 2px;
+   font-size: 20px;
+   position: absolute;
+   right: -95%;
+   bottom: 10px;
+   visibility: hidden;
+}
+.products .photo-items:hover svg{
+    visibility: visible;
+}
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <div class="img1">
+            <img src="img/logo.png" alt="" srcset="">
+        </div>
+
+        <div class="link">
+            <ol>
+                <li><a href="#">Home</a></li>
+
+                <li class="dropdown"><a href="#" class="dropdown-btn">shop</a>
+                    <ul class="menu">
+                        <li>accesories</li>
+                        <li>decor</li>
+                        <li>kids toy</li>
+                        <li>man clothes</li>
+                        <li>woman clothes</li>
+                        <li>beauty</li>
+                    </ul>
+                </li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">page</a>
+                </li>
+                <li><a href="#">contact</a></li>
+            </ol>
+
+        </div>
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+               
+                <path
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #000000
+                    }
+                </style>
+                <path
+                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+            </svg>
+            <span>2</span>
+            <a href="#" class="buy">buy now</a>
+        </div>
+    </section><!--header-->
+    <section class="container">
+        <!-- <div class="blue"></div> -->
+        <div class="lightblue"></div>
+        <!-- <img src="img/hero-banner.png" alt="" srcset=""> -->
+        <img src="img/hero-banner2.png" alt="" srcset="">
+        <div class="shop">
+            <h2>Shop is fun</h2>
+            <h1><span class="shine">browse our <br>premium product</span> </h1>
+            <p>We welcome you to our regular store, we hope you will be happy with our products</p>
+            <br><br><br>
+            <a href="#" class="bth">browse now</a>
+        </div>
+    </section><!--container-->
+    <section class="products">
+        <h2 class="title">trending product</h2>
+        <div class="line"></div>
+        <div class="products-items">
+            <div class="photo-items">
+                <img src="img/product1.png" alt="" srcset="">
+                <h3 class="type-product">accesories</h3>
+                <h2 class="name-product">quartz belt watch</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fff}</style><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>
+            </div>
+            <div class="photo-items">
+                <img src="img/product2.png" alt="" srcset="">
+                <h3 class="type-product">beauty</h3>
+                <h2 class="name-product">woman Skin lotion</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fff}</style><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>
+            </div>
+            <div class="photo-items">
+                <img src="img/product3.png" alt="" srcset="">
+                <h3 class="type-product">decor</h3>
+                <h2 class="name-product">flach light</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fff}</style><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>
+            </div>
+            <div class="photo-items">
+                <img src="img/product6.png" alt="" srcset="">
+                <h3 class="type-product">kids toy</h3>
+                <h2 class="name-product">small car toy</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#fff}</style><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>
+            </div>
+        </div>
+    </section><!--products-->
+</body>
+
+</html>
